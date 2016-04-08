@@ -1,0 +1,22 @@
+framereceiver:
+  image: deasel011/frame:0.9.1
+  ports:
+    - "3001:3001"
+    - "3001:3001/udp"
+    - "8000:8000"
+  links:
+    - mongo:mongo
+    - rabbitmq:rabbitmq
+mongo:
+  image: mongo
+  ports:
+    - "27017:27017"
+  volumes:
+    - /data/db
+rabbitmq:
+  image: rabbitmq
+  ports:
+    - "4369:4369"
+    - "5671:5671"
+    - "5672:5672"
+    - "25672:25672"
