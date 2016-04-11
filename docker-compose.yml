@@ -1,5 +1,5 @@
 framereceiver:
-  image: deasel011/frame:0.9.1
+  image: deasel011/frame:0.9.3
   ports:
     - "3001:3001"
     - "3001:3001/udp"
@@ -7,6 +7,8 @@ framereceiver:
   links:
     - mongo:mongo
     - rabbitmq:rabbitmq
+  volumes:
+    - /log/
 mongo:
   image: mongo
   ports:
@@ -20,3 +22,9 @@ rabbitmq:
     - "5671:5671"
     - "5672:5672"
     - "25672:25672"
+mongorest:
+  image: deasel011/mongorest
+  ports:
+  - "8008:8008"
+  links:
+  - mongo:mongo
