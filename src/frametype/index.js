@@ -5,6 +5,7 @@ var type83 = require('./type83parser.js');
 var type119 = require('./type119parser.js');
 var type120 = require('./type120parser.js');
 var exports = module.exports = {};
+var log = require('../logger');
 
 exports.filterUdp = function (frame, callback) {
     switch (frame[0]) {
@@ -18,6 +19,7 @@ exports.filterUdp = function (frame, callback) {
             callback(type120.filterUdp(frame,callback));
             break;
         default:
+            log.error("Frame Type unknown")
             callback(null);
             break;
     }
