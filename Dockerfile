@@ -6,8 +6,8 @@ COPY package.json /src/package.json
 RUN cd /src; npm install
 
 COPY src/ /src/
+COPY log/ /log/
 
-EXPOSE 8000
 EXPOSE 3001
 EXPOSE 3001/udp
 

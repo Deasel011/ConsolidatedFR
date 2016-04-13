@@ -7,9 +7,9 @@ var log = bunyan.createLogger({
     name: "FrameError",
     streams:[
         {level:'error',
-        path:'/log/error.log'},
+        path:'../log/error.log'},
         {level:'fatal',
-        path:'/log/fatal.log'}
+        path:'../log/fatal.log'}
     ],
     serializers: bunyan.stdSerializers
 });

@@ -15,6 +15,10 @@ mongo:
     - "27017:27017"
   volumes:
     - /data/db
+  command: mongo
+  command: use frame
+  command: db.frame.createIndex({UpdateTime: 1})
+  command: exit
 rabbitmq:
   image: rabbitmq
   ports:
