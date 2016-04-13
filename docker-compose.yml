@@ -1,9 +1,8 @@
 framereceiver:
-  image: deasel011/frame:0.9.3
+  image: deasel011/frame:0.9.9
   ports:
     - "3001:3001"
     - "3001:3001/udp"
-    - "8000:8000"
   links:
     - mongo:mongo
     - rabbitmq:rabbitmq
@@ -15,10 +14,6 @@ mongo:
     - "27017:27017"
   volumes:
     - /data/db
-  command: mongo
-  command: use frame
-  command: db.frame.createIndex({UpdateTime: 1})
-  command: exit
 rabbitmq:
   image: rabbitmq
   ports:

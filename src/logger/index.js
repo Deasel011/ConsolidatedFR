@@ -3,13 +3,14 @@
  */
 var errorlog;
 var bunyan = require('bunyan');
+var errPath = require('../config.js').errPath;
 var log = bunyan.createLogger({
     name: "FrameError",
     streams:[
         {level:'error',
-        path:'../log/error.log'},
+        path: errPath+'error.log'},
         {level:'fatal',
-        path:'../log/fatal.log'}
+        path: errPath+'fatal.log'}
     ],
     serializers: bunyan.stdSerializers
 });

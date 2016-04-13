@@ -4,16 +4,6 @@
 var configs = require('../config.js');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-/*var bunyan = require('bunyan');
-var log = bunyan.createLogger({
-    name: "FrameError",
-    streams:[
-        {
-            level:'error',
-            path:'/log/error.log'
-        }
-    ]
-});*/
 
 module.exports = {
     connect: function(){
@@ -27,6 +17,9 @@ module.exports = {
     },
     errlogger: function(){
         return mongoose.model('errorlog', errorlog).db.collection("errorlog");
+    },
+    disconnect: function(){
+        return mongoose.disconnect();
     }
 };
 
