@@ -24,6 +24,12 @@ rabbitmq:
 mongorest:
   image: deasel011/mongorest
   ports:
-  - "8008:8008"
+    - "8008:8008"
   links:
-  - mongo:mongo
+    - mongo:mongo
+frameviewer:
+  image: deasel011/frameviewer:0.0.1
+  ports:
+    - "3000:3000"
+  links:
+    - mongorest:mongorest
